@@ -1,4 +1,5 @@
 const pool = require("./Pool");
+const populateDatabase = require("./populatedb");
 
 async function getUserNames() {
   try {
@@ -23,6 +24,7 @@ async function searchUserNames(username) {
 }
 async function insertUserName(username) {
   try {
+    await populateDatabase();
     await pool.query("INSERT INTO usernames (username) VALUES ($1)", [
       username,
     ]);

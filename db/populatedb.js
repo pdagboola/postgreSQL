@@ -5,7 +5,7 @@ const { Client } = require("pg");
 const SQL = `CREATE TABLE IF NOT EXISTS usernames(
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY, username VARCHAR(255)
 );
-    INSERT INTO usernames(username) VALUES ('Peter'), ('Deji'), ('Sheddy');
+    
     `;
 
 async function main() {
@@ -29,3 +29,5 @@ async function main() {
 }
 
 main();
+
+module.exports = main;

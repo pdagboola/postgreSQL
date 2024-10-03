@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%=title%></title>
+    <title><%= title %></title>
   </head>
   <body>
-    <h1><%=title%></h1>
+    <h1><%= title %></h1>
     <ul>
-      <%if(locals.user){%>
-      <li><%=usernames.map((user) => user.username).join(", ")%></li>
-      <%}%>
+      <% if (locals.usernames) { %> <% usernames.forEach((user) => { %>
+      <li><%= user.username %></li>
+      <% }); %> <% } %>
     </ul>
     <a href="/new"><button>Add User</button></a>
   </body>
