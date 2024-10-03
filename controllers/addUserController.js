@@ -25,6 +25,13 @@ async function searchUserGet(req, res) {
   console.log(usernameSearch);
   const result = await db.searchUserNames(usernameSearch);
   const newResult = result.map((item) => item.username);
+  const newResultNotFound = "No matching results found";
+  if (newResult.length === 0) {
+    res.render("search", {
+      title: `Search results for ${usernameSearch}`,
+      result: newResultNotFound,
+    });
+  }
   res.render("search", {
     title: `Search results for ${usernameSearch}`,
     result: newResult,
