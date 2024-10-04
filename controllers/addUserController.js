@@ -31,11 +31,13 @@ async function searchUserGet(req, res) {
       title: `Search results for ${usernameSearch}`,
       result: newResultNotFound,
     });
+  } else {
+    res.render("search", {
+      title: `Search results for ${usernameSearch}`,
+      result: newResult,
+    });
   }
-  res.render("search", {
-    title: `Search results for ${usernameSearch}`,
-    result: newResult,
-  });
+
   console.log(newResult);
 }
 async function deleteUserGet(req, res) {
